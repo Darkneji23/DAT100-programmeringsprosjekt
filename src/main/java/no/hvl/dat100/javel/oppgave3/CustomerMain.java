@@ -10,12 +10,12 @@ public class CustomerMain {
         System.out.println("OPPGAVE 3");
         System.out.println("==============");
         System.out.println();
-
-        /*
-        TODO
-
-         Write code that creates a Customer object and teste the methods implemented in the class
-
-        */
+        Customer firstCustomer = new Customer("Dmytro Homon", "alice@example.com", 1001, PowerAgreementType.SPOTPRICE);
+        System.out.println(firstCustomer.toString());
+        System.out.println();
+        System.out.println(firstCustomer.getName() + " has agreement type: " + firstCustomer.getAgreement());
+        System.out.println();
+        firstCustomer.setAgreement(PowerAgreementType.NORGESPRICE);
+        System.out.println(firstCustomer.getName() + " has agreement type: " + firstCustomer.getAgreement());
     }
 }
