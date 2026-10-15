@@ -10,7 +10,7 @@ public class CustomerMain {
         System.out.println("OPPGAVE 3");
         System.out.println("==============");
         System.out.println();
-        Customer firstCustomer = new Customer("Dmytro Homon", "alice@example.com", 1001, PowerAgreementType.SPOTPRICE);
+        Customer firstCustomer = new Customer("Dmytro Homon", "dmytro@example.com", 1001, PowerAgreementType.SPOTPRICE);
         System.out.println(firstCustomer.toString());
         System.out.println();
         System.out.println(firstCustomer.getName() + " has agreement type: " + firstCustomer.getAgreement());
