@@ -6,24 +6,33 @@ public class MonthlyPower {
 
     // a) print power usage for a month
     public static void print_PowerUsage(double[][] usage) {
-
-        // TODO
-
+        for (int i = 0; i < usage.length; i++) {
+            if(i % 4 == 0){
+                System.out.println();
+            }
+            DailyPower.printPowerUsage(usage[i]);
+        }
+        System.out.println();
     }
 
     // b) print power prices for a month
     public static void print_PowerPrices(double[][] prices) {
-
-        // TODO
-
+        for (int i = 0; i < prices.length; i++) {
+            if(i % 4 == 0){
+                System.out.println();
+            }
+            DailyPower.printPowerPrices(prices[i]);
+        }
+        System.out.println();
     }
 
     // c) compute total power usage for a month
     public static double computePowerUsage(double[][] usage) {
 
         double sum = 0;
-
-        // TODO
+        for(double[] day : usage){
+            sum += DailyPower.computePowerUsage(day);
+        }
 
         return sum;
     }
@@ -32,10 +41,10 @@ public class MonthlyPower {
     public static boolean exceedThreshold(double[][] powerusage, double threshold) {
 
         boolean exceeded = false;
-        double usage = 0;
-
-        // TODO
-
+        double usage =  computePowerUsage(powerusage);
+        if(usage > threshold){
+            return exceeded = true;
+        }
         return exceeded;
     }
 
@@ -43,8 +52,9 @@ public class MonthlyPower {
     public static double computeSpotPrice(double[][] usage, double[][] prices) {
 
         double price = 0;
-
-        // TODO
+        for(int i = 0; i < usage.length; i++){
+            price += DailyPower.computeSpotPrice(usage[i], prices[i]);
+        }
 
         return price;
     }
@@ -53,9 +63,9 @@ public class MonthlyPower {
     public static double computePowerSupport(double[][] usage, double[][] prices) {
 
         double support = 0;
-
-        // TODO
-
+        for(int i = 0; i < usage.length; i++){
+            support += DailyPower.computePowerSupport(usage[i], prices[i]);
+        }
         return support;
     }
 
@@ -63,9 +73,9 @@ public class MonthlyPower {
     public static double computeNorgesPrice(double[][] usage) {
 
         double price = 0;
-
-        // TODO
-
+        for(int i = 0; i < usage.length; i++){
+            price += DailyPower.computeNorgesPrice(usage[i]);
+        }
         return price;
     }
 }
